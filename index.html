@@ -12,7 +12,7 @@
 
 <body>
     
-    <header>
+    <header class="hero">
         <div class="date">
             <svg version="1.1" id="date" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 353.6 542.7" xml:space="preserve">
@@ -110,7 +110,7 @@
         </div>
     </header>
 
-    <nav id="nav" class="">
+    <nav id="nav" class="main-nav">
         <h2>t&t</h2>
         <ul>
             <li><a href="#accommodation">accommodations</a></li>
@@ -123,34 +123,46 @@
         </ul>
     </nav>
 
-    <section id="accommodation">
+    <section id="accommodation" class="accommodation">
         <div class="wrapper">
             <h2>accommodations</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi est explicabo facere qui. Atque optio, sunt a consequuntur veritatis doloremque odio necessitatibus, nulla, inventore repudiandae quasi autem corporis ex. Omnis magnam quod autem mollitia, earum ea fugit optio quae, assumenda fugiat id velit perspiciatis vero ratione eligendi odio, ipsam maiores necessitatibus amet? Nesciunt voluptates cum minus excepturi deleniti atque tenetur harum voluptatem quo amet dolore quasi, nam est at neque quis veritatis facere, rem reiciendis et hic quas cumque magni? Minus aliquam aperiam fugit voluptatem autem amet veritatis. Ad nisi, accusantium dolorum numquam at dolorem deleniti asperiores distinctio ullam? Et asperiores impedit nulla. Nisi natus quo eaque nostrum aliquid illum quod sapiente hic, facere expedita, repellat quibusdam iste alias omnis earum perferendis ullam nulla, ipsa eligendi vero nihil qui cumque. Quidem deserunt unde distinctio. Quibusdam voluptatum mollitia eos tempora?</p>
+            <p>There are several choices for accommodation:</p>
+            <ul>
+                <li>Camping on the property <span>Cost: Free</span></li>
+                <li><a target="_blank" href="http://waterview.ca/">Waterview on the bay resort**</a><span>Cost: $$</span></li>
+                <li><a target="_blank" href="http://cobblebeach.com/">Cobble Beach resort**</a><span>Cost: $$$$</span></li>
+            </ul>
+            <p>A bus will be available for transportation from Waterview resort and Cobble Beach resort. For more information see below.</p>
+            <p>** Please reserve before April 1st 2018</p>
         </div>
     </section>
 
     <section id="transportation" class="transportation">
         <div class="wrapper">
             <h2>transportation</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi est explicabo facere qui. Atque optio, sunt a consequuntur veritatis doloremque odio necessitatibus, nulla, inventore repudiandae quasi autem corporis ex. Omnis magnam quod autem mollitia, earum ea fugit optio quae, assumenda fugiat id velit perspiciatis vero ratione eligendi odio, ipsam maiores necessitatibus amet? Nesciunt voluptates cum minus excepturi deleniti atque tenetur harum voluptatem quo amet dolore quasi, nam est at neque quis veritatis facere, rem reiciendis et hic quas cumque magni? Minus aliquam aperiam fugit voluptatem autem amet veritatis. Ad nisi, accusantium dolorum numquam at dolorem deleniti asperiores distinctio ullam? Et asperiores impedit nulla. Nisi natus quo eaque nostrum aliquid illum quod sapiente hic, facere expedita, repellat quibusdam iste alias omnis earum perferendis ullam nulla, ipsa eligendi vero nihil qui cumque. Quidem deserunt unde distinctio. Quibusdam voluptatum mollitia eos tempora?</p>
+            <p>We have arranged a shuttle bus for the event. The bus will pick up people from Cobble Beach Resort at 3:45pm and proceed to Waterview on the Bay Resort for 4:15pm. The bus will then arrive at the venue for 5:00pm. In the evening the bus will do <span><em>two</em></span> trips to both resorts:</p>
+            <ul>
+                <li>First trip will be at roughly 11:00pm</li>
+                <li>Second trip will be at roughly 1:30am</li>
+            </ul>
+            <p>In your RSVP please mention if you will be using the shuttle bus.</p>
         </div>
     </section>
 
-    <section id="details">
+    <section id="details" class="details">
         <div class="wrapper">
             <h2>details</h2>
             <h3>wedding party:</h3>
             <div class="half">
                 <ul class="">
-                    <li>Vanessa Stewart</li>
+                    <li><a target="_blank" href="https://media.giphy.com/media/TQThs59WAL1zW/giphy.gif">Vanessa Stewart (Maid of Honour)</a></li>
                     <li>Emily Podger</li>
                     <li>Kara Rive</li>
                     <li>Sara McCartney</li>
                 </ul>
                 <ul class="">
-                    <li>James Roebuck</li>
-                    <li>Sean Gill</li>
+                    <li><a target="_blank" href="https://media.giphy.com/media/T1qggGUiV7Cq4/giphy.gif">James Roebuck (Best Man)</a></li>
+                    <li><a target="_blank" href="https://media.giphy.com/media/26Ff05K21rzHKB15K/giphy.gif">Sean Gill (Officiant)</a></li>
                     <li>Andrew Nogueira</li>
                     <li>William Haxell</li>
                 </ul>
@@ -220,9 +232,9 @@
         <p>thanks</p>
     </footer>
 
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="scripts.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-ruFGes7WodWmrf_D4bv4_YNdCr0FBU&callback=initMap">

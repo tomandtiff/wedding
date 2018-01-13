@@ -1,3 +1,57 @@
+
+
+
+$(document).ready(function() {
+
+    console.log('Why hello there...came looking for an easter egg?');
+
+    // Init ScrollMagic
+    var controller = new ScrollMagic.Controller();
+
+    var scrollIndicator = new ScrollMagic.Scene({
+        triggerElement: '.hero',
+        triggerHook: 0.4,
+        duration: $('.hero').outerHeight()
+    })
+    .addIndicators({
+        name: 'transportation'
+    })
+    .setClassToggle('#nav', 'invisible')
+    .addTo(controller)
+    ;
+
+    var scrollIndicator = new ScrollMagic.Scene({
+        triggerElement: '#transportation',
+        triggerHook: 0.4,
+        duration: $('#transportation').outerHeight()
+    })
+    .addIndicators({
+        name: 'transportation'
+    })
+    .setClassToggle('#nav', 'go-white')
+    .addTo(controller)
+    ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
 function initMap() {
             var mums = { lat: 44.980275, lng: -81.2954297 };
             // var ecoadv = { lat: 42.6891432, lng: -80.3506353 };
@@ -215,5 +269,63 @@ function initMap() {
             for (var i = 0, feature; feature = features[i]; i++) {
                 addMarker(feature);
             }
-
         }
+
+        
+
+        // SMOOTH SCROLL 
+        // Select all links with hashes
+        $('a[href*="#"]')
+          // Remove links that don't actually link to anything
+          .not('[href="#"]')
+          .not('[href="#0"]')
+          .click(function(event) {
+            // On-page links
+            if (
+              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+              && 
+              location.hostname == this.hostname
+            ) {
+              // Figure out element to scroll to
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              // Does a scroll target exist?
+              if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $('html, body').animate({
+                  scrollTop: target.offset().top
+                }, 1000, function() {
+                  // Callback after animation
+                  // Must change focus!
+                  var $target = $(target);
+                  $target.focus();
+                  if ($target.is(":focus")) { // Checking if the target was focused
+                    return false;
+                  } else {
+                    $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                    $target.focus(); // Set focus again
+                  };
+                });
+              }
+            }
+          });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
