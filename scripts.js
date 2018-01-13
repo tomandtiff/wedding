@@ -34,6 +34,22 @@ $(document).ready(function() {
 
 
 
+    // READY TO PARTY 
+
+    $('#party').on('click', function() {
+        if ($('input#party').prop('checked')) {
+
+            console.log('bam');
+            $('.hidden-party').addClass('party');
+
+
+
+
+        }
+    });
+
+
+
 
 
 
@@ -271,7 +287,7 @@ function initMap() {
             }
         }
 
-        
+
 
         // SMOOTH SCROLL 
         // Select all links with hashes

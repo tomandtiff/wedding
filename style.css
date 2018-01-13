@@ -15,6 +15,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 body {
     font-family: CaslonGraphiqueEF;
+    overflow-x: hidden;
     color: #212121;
 }
 
@@ -167,19 +168,89 @@ ul a {
 
 header {
     min-height: 100vh;
-    background: #212121;
+    background: white;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     /* grid-template-rows: 100vh; */
     align-items: center;
+    position: relative;
 }
-
-
 .date {
     background: #212121;
+    position: relative;
+    z-index: 3;
     text-align: center;
     min-height: 90vh;
+    height: 100%;
+    /*animation: textAppear 2s ease-in;*/
+    /*transform: translateX(-500px);*/
+    
 }
+
+.paper {
+    position: relative;
+    z-index: 3;
+    /*transform: translateX(500px);*/
+    /*animation: textAppear 2s ease-in;*/
+    
+}
+
+.fake-left {
+    background: #212121;
+    position: absolute;
+    z-index: 4;
+    width: 0%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    animation: slideInRight 4s ease-out;
+    animation-iteration-count: 1;
+}
+
+.fake-right {
+    background: white;
+    position: absolute;
+    z-index: 4;
+    width: 0%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    animation: slideInLeft 2.8s ease-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(0px);
+        width: 50%;
+    }
+    100% {
+        transform: translateX(-1000px);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(0px);
+        width: 50%;
+    }
+    100% {
+        transform: translateX(1000px);
+    }
+}
+
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 
 
 /* End of Header Section */
@@ -266,6 +337,10 @@ g {
 
 /* Contact Section */
 
+section.rsvp {
+    position: relative;
+}
+
 section:not(.map){
     padding: 100px 0;
 }
@@ -304,6 +379,115 @@ input {
 
 
 
+
+/* Party Section */
+.hidden-party {
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    border: 1px solid red;
+    bottom: -200px;
+    opacity: 0;
+}
+
+.balloon {
+    width: 100px;
+    height: auto;
+    fill: red;
+    position: absolute; 
+}
+
+.hidden-party.party {
+    display: block;
+    animation: goUp 2s ease-in; 
+    position: absolute;
+}
+
+.hidden-party.party .balloon1 {
+    fill: blue;
+    animation: party-one 2s ease-in;
+}
+
+.hidden-party.party .balloon2 {
+    fill: green;
+    animation: party-two 2s ease-in;
+}
+
+.hidden-party.party .balloon3 {
+    fill: pink;
+    animation: party-three 2s ease-in;
+}
+
+@keyframes goUp {
+    0% {
+        bottom: 0;
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes party-one {
+    0% {
+        bottom: 0;
+        margin-left: 105px;
+        opacity: 1;
+    }
+    50% {
+        margin-left: 200px;
+        transform: rotate(30deg);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        margin-right: 20px;
+        transform: rotate(-50deg);
+        opacity: 0;
+    }
+}
+
+@keyframes party-two {
+    0% {
+        bottom: 0;
+        right: 50px;
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(5deg);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        right: 75px;
+        transform: rotate(-80deg);
+        opacity: 0;
+    }
+}
+
+@keyframes party-three {
+    0% {
+        bottom: 0;
+        left: 20px;
+        opacity: 1;
+    }
+    50% {
+        right: 10px;
+        transform: rotate(10deg);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        left: 50px;
+        transform: rotate(-30deg);
+        opacity: 0;
+    }
+}
 
 
 
