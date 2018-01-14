@@ -13,9 +13,9 @@ $(document).ready(function() {
         triggerHook: 0.4,
         duration: $('.hero').outerHeight()
     })
-    .addIndicators({
-        name: 'transportation'
-    })
+    // .addIndicators({
+    //     name: 'transportation'
+    // })
     .setClassToggle('#nav', 'invisible')
     .addTo(controller)
     ;
@@ -25,9 +25,9 @@ $(document).ready(function() {
         triggerHook: 0.4,
         duration: $('#transportation').outerHeight()
     })
-    .addIndicators({
-        name: 'transportation'
-    })
+    // .addIndicators({
+    //     name: 'transportation'
+    // })
     .setClassToggle('#nav', 'go-white')
     .addTo(controller)
     ;
@@ -41,9 +41,6 @@ $(document).ready(function() {
 
             console.log('bam');
             $('.hidden-party').addClass('party');
-
-
-
 
         }
     });

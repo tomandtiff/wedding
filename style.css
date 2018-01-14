@@ -20,7 +20,7 @@ body {
 }
 
 .wrapper {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
 }
 
@@ -50,11 +50,15 @@ h3 {
 
 p, label, li {
     font-family: 'Raleway','FuturaStdMedium', sans-serif;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     line-height: 1.7;
     /* text-shadow: -0.5px -0.5px 0 #8e8e8f; */
     letter-spacing: 2px;
-    font-size: 12px;
+    font-size: 15px;
+}
+
+header p {
+    text-transform: uppercase;
 }
 
 label {
@@ -354,6 +358,10 @@ form div {
     margin: 20px 0;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .half {
     display: flex;
 }
@@ -374,7 +382,12 @@ input {
     z-index: -1;
 } */
 
-
+.highlight {
+    background: gold;
+    transform: skew(-10deg);
+    display: inline-block;
+    font-weight: bold;
+}
 /* End of contact section */ 
 
 
@@ -405,18 +418,35 @@ input {
 }
 
 .hidden-party.party .balloon1 {
-    fill: blue;
+    fill: #80CBC4;
     animation: party-one 2s ease-in;
+    width: 70px;
 }
 
 .hidden-party.party .balloon2 {
-    fill: green;
+    fill: cadetblue;
     animation: party-two 2s ease-in;
+    width: 150px;
 }
-
 .hidden-party.party .balloon3 {
-    fill: pink;
+    fill: darkcyan;
+    animation: party-three 3s ease-in;
+    width: 500px;
+}
+.hidden-party.party .balloon4 {
+    fill: #efefef;
+    animation: party-four 2s ease-in;
+    width: 100px;
+}
+.hidden-party.party .balloon5 {
+    fill: #CCC2C2;
     animation: party-three 2s ease-in;
+    width: 300px;
+}
+.hidden-party.party .balloon6 {
+    fill: cadetblue;
+    animation: party-four 2s ease-in;
+    width: 450px;
 }
 
 @keyframes goUp {
@@ -489,10 +519,33 @@ input {
     }
 }
 
+@keyframes party-four {
+    0% {
+        bottom: 0;
+        left: 120px;
+        opacity: 1;
+    }
+    50% {
+        right: 110px;
+        transform: rotate(-10deg);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        left: 150px;
+        transform: rotate(-33deg);
+        opacity: 0;
+    }
+}
 
 
+/* footer section */
 
+footer {
+    text-align:center;
+}
 
+/* end of footer section */
 
 
 
