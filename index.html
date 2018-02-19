@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tiff and Tom Wedding</title>    
+    <title>Tiff and Tom Wedding</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -103,11 +103,15 @@
                 <br> &
                 <br>tom
                 <br>haxell</h1>
-            <p>Request your presence at the ceremony and celebration of their marriage</p>
-            <p>Saturday, August twentyfifth two thousand and eighteen
-                <br>at five o'clock in the evening, ceremony to begin at five thirty</p>
-            <p>2969 Highway 6, Lions Head,
-                <br> Northern Bruce Peninsula, Ontario</p>
+            <p>Request your presence<br>
+                at the ceremony and celebration<br> 
+                of their marriage</p>
+            <p>Saturday, August twenty-fifth<br> 
+                two thousand and eighteen<br> 
+                at five o'clock in the evening<br> 
+                ceremony to begin at five thirty</p>
+            <p>2969 Highway 6, Lions Head,<br> 
+                Northern Bruce Peninsula, Ontario</p>
             <h3>dinner and reception to follow</h3>
         </div>
     </header>
@@ -122,6 +126,7 @@
             <li><a href="#details">details</a></li>
             <li><a href="#find">map</a></li>
             <li><a href="#rsvp">rsvp</a></li>
+            <li class="menu"><i class="fa fa-bars"></i></li>
         </ul>
     </nav>
 
@@ -133,11 +138,10 @@
                 <li><p>Camping on the property</p>
                     <ul>
                         <li>Cost: Free</li>
-                        <li>Please set up tents after the ceremony</li>
                     </ul>
                 </li>
                 <li>
-                    <p><a target="_blank" href="http://peninsulamotel.ca/">Peninsula Motel**</a></p>
+                    <p><a target="_blank" href="http://peninsulamotel.ca/">Peninsula Motel</a></p>
                     <ul>
                         <li>Cost: $119/night</li>
                         <li><a href="tel:5195341129">(519) 534-1129</a></li>
@@ -146,7 +150,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p><a target="_blank" href="http://www.guestreservations.com/days-inn-and-conference-centre-owen-sound/booking">Quality Inn Owen Sound**</a></p>
+                    <p><a target="_blank" href="http://www.guestreservations.com/days-inn-and-conference-centre-owen-sound/booking">Quality Inn Owen Sound</a></p>
                     <ul>
                         <li>Cost: $149/night with a 2 night minimum</li>
                         <li>The one night rate is $210.00 (this is not part of the block, and should be booked as soon as possible!)</li>
@@ -156,8 +160,7 @@
                     </ul>
                 </li>
             </ul>
-            <p>A bus will be available for transportation to and from Peninsula Motel and Quality Inn Owen Sound. For more information see below.</p>
-            <p>** Please reserve before <span class="highlight">June 15th 2018</span></p>
+            <p>Please reserve before <span class="highlight">June 15th 2018</span></p>
         </div>
     </section>
 
@@ -199,7 +202,7 @@
             <ul>
                 <li><strong>16:00</strong> bus will depart Quality Inn Owen Sound for venue</li>
                 <li><strong>16:45</strong> bus will depart Peninsula Motel for venue</li>
-                <li><strong>17:00</strong> guests will arrive at venue</li>
+                <li><strong>17:00</strong> guests will begin to arrive at venue</li>
                 <li><strong>17:30</strong> ceremony will begin</li>
                 <li><strong>19:00</strong> dinner and reception will begin</li>
                 <li><strong>23:00</strong> first bus will depart the venue</li>
@@ -217,34 +220,30 @@
         <div class="wrapper">
             <h2>rsvp</h2>
             <p>Please respond by <span class="highlight">June 30th, 2018</span></p>
-            <form action="">
+            <form action="" id="rsvp">
                 <div>
                     <label for="name" class="bold">First and last names of guests:*</label>
-                    <input type="text" id="name" name="name">
+                    <p class="small">Unfortunately, we will be unable to accommodate children. Please refer to your email for invitees.</p>
+                    <input type="text" id="name" name="name" required>
                 </div>
 
                 <div>
                     <label for="attendance" class="bold">Attendance:*</label>
-
+                    
+                    <input type="radio" id="yes" value="yes" name="attendance" class="radio" required>
                     <label for="yes" class="radio">Accepts with pleasure</label>
-                    <input type="radio" id="yes" name="attendance" class="radio">
                     <br>
+                    <input type="radio" id="no" value="no" name="attendance" class="radio" required>
                     <label for="no" class="radio">Regretfully decline</label>
-                    <input type="radio" id="no" name="attendance" class="radio">
                 </div>
 
                 <div>
-                    <label for="party" class="radio bold">Ready to party?</label>
-                    <input type="checkbox" id="party" name="attendance" class="radio">
-                </div>
-
-                <div>
-                    <label for="bus" class="bold">Going to take the bus?</label>
-                    <label for="busYes" class="radio">Yes, please</label>
+                    <label for="bus" class="bold">Would you like to take the bus?</label>
                     <input type="radio" class="radio" id="busYes" value="yes" name="bus" class="radio">
+                    <label for="busYes" class="radio">Yes, please</label>
                     <br>
-                    <label for="busNo" class="radio">No, I'll find my own way</label>
-                    <input type="radio" class="radio" id="busNo" name="bus" class="radio">
+                    <input type="radio" class="radio" id="busNo" value="no" name="bus" class="radio">
+                    <label for="busNo" class="radio">No, I'll find my own way</label>                    
                 </div>
 
 
@@ -258,7 +257,17 @@
                     <input type="text" id="songs" name="songs">
                 </div>
 
-                <input type="submit" value="submit">
+                <div>
+                    <label for="comments" class="bold">Comments:</label>
+                    <input type="text" id="comments" name="comments">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="party" name="party" class="radio" value="ready to party!">
+                    <label for="party" class="radio bold">Ready to party?</label>
+                </div>
+
+                <input type="submit" value="submit" id="submitted">
             </form>
         </div>
 
@@ -300,11 +309,12 @@
     </footer>
 
     
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
     <script src="scripts.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-ruFGes7WodWmrf_D4bv4_YNdCr0FBU&callback=initMap"></script>
 </body>
