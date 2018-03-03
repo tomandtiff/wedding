@@ -53,8 +53,17 @@ $(document).ready(function() {
     var $form = $('form#test-form'),
         url = 'https://script.google.com/macros/s/AKfycbwa4fAR5TN0qIpF06evCkhPrNFLb4LuiiAJEpQn5VWariKIvCE/exec'
 
+    function addActive() {
+        $('button.button').addClass('active');
+    }
+    function addCheck() {
+        $('button.button').removeClass('active');
+        $('button.button').addClass('finished');
+    }
+
     $('form').on('submit', function (e) {
         e.preventDefault();
+        addActive();
         $('input[type=submit]').addClass('sent');
         var form = $(this).serializeArray();
         var jqxhr = $.ajax({
@@ -63,11 +72,12 @@ $(document).ready(function() {
             dataType: "json",
             data: form
         }).success(function() {
-            console.log('it worked');
-            $('input[type=submit]').addClass('success');
+            addCheck();
             $('input[type=text]').val('');
             $('input[type=checkbox]').prop('checked', false);
             $('input[type=radio]').prop('checked', false);
+        }).fail(function() {
+            alert('try again');
         });
     });
 
@@ -85,8 +95,27 @@ $(document).ready(function() {
         }
     });
 
-
     $('a').smoothScroll();
+
+    // button
+    function hover() {
+        $(".button").on("mouseenter", function () {
+            return $(this).addClass("hover");
+        });
+    }
+
+    function hoverOff() {
+        $(".button").on("mouseleave", function () {
+            return $(this).removeClass("hover");
+        });
+    }
+
+    function active() {
+        return $('.button').addClass("active");
+    }
+
+    hover();
+    hoverOff();
 });
 
 
