@@ -39,13 +39,15 @@ $(document).ready(function() {
     $('#party').on('click', function() {
         if ($('input#party').prop('checked')) {
 
-            console.log('bam');
             $('.hidden-party').addClass('party');
-
-
-
-
         }
+
+        $('#rick').get(0).play();
+
+    });
+
+    $('#submit').on('submit', function(){
+        $('#rick').get(0).pause();
     });
 
 
