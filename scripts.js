@@ -13,9 +13,9 @@ $(document).ready(function() {
         triggerHook: 0.4,
         duration: $('.hero').outerHeight()
     })
-    .addIndicators({
-        name: 'transportation'
-    })
+    // .addIndicators({
+    //     name: 'transportation'
+    // })
     .setClassToggle('#nav', 'invisible')
     .addTo(controller)
     ;
@@ -25,9 +25,9 @@ $(document).ready(function() {
         triggerHook: 0.4,
         duration: $('#transportation').outerHeight()
     })
-    .addIndicators({
-        name: 'transportation'
-    })
+    // .addIndicators({
+    //     name: 'transportation'
+    // })
     .setClassToggle('#nav', 'go-white')
     .addTo(controller)
     ;
@@ -36,33 +36,91 @@ $(document).ready(function() {
 
     // READY TO PARTY 
 
-    $('#party').on('click', function() {
+    $('input#party').on('click touchstart', function() {
+
         if ($('input#party').prop('checked')) {
 
             $('.hidden-party').addClass('party');
         }
 
         $('#rick').get(0).play();
-
     });
 
-    $('#submit').on('submit', function(){
+    $('#submit-btn').on('click', function(){
         $('#rick').get(0).pause();
     });
 
 
 
+    // HANDLE FORM SUBMIT
+    // https://script.google.com/macros/u/1/s/AKfycbwa4fAR5TN0qIpF06evCkhPrNFLb4LuiiAJEpQn5VWariKIvCE/exec
 
+    var $form = $('form#test-form'),
+        url = 'https://script.google.com/macros/s/AKfycbwa4fAR5TN0qIpF06evCkhPrNFLb4LuiiAJEpQn5VWariKIvCE/exec'
 
+    function addActive() {
+        $('button.button').addClass('active');
+    }
+    function addCheck() {
+        $('button.button').removeClass('active');
+        $('button.button').addClass('finished');
+    }
 
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        addActive();
+        $('input[type=submit]').addClass('sent');
+        var form = $(this).serializeArray();
+        var jqxhr = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            data: form
+        }).success(function() {
+            addCheck();
+            $('input[type=text]').val('');
+            $('input[type=checkbox]').prop('checked', false);
+            $('input[type=radio]').prop('checked', false);
+        }).fail(function() {
+            alert('try again');
+        });
+    });
 
+    $('.menu').on('click touchstart', function() {
+        $('ul li:not(".menu")').toggle();
+        $('nav ul').toggleClass('mobile');
+        $('nav').toggleClass('mobile');
+    });
 
+    $('nav a').on('click touchstart', function() {
+        if (window.innerWidth < 800) {
+            $('ul li:not(".menu")').toggle();
+            $('nav ul').removeClass('mobile');
+            $('nav').removeClass('mobile');
+        }
+    });
 
+    $('a').smoothScroll();
 
+    // button
+    function hover() {
+        $(".button").on("mouseenter", function () {
+            return $(this).addClass("hover");
+        });
+    }
 
+    function hoverOff() {
+        $(".button").on("mouseleave", function () {
+            return $(this).removeClass("hover");
+        });
+    }
 
+    function active() {
+        return $('.button').addClass("active");
+    }
 
-
+    hover();
+    hoverOff();
 });
 
 
@@ -72,11 +130,12 @@ $(document).ready(function() {
 
 function initMap() {
             var mums = { lat: 44.980275, lng: -81.2954297 };
-            // var ecoadv = { lat: 42.6891432, lng: -80.3506353 };
+            var qualityInn = { lat: 44.5626069, lng: -80.9268468 };
+            var penninsula = { lat: 44.7665576, lng: -81.1451329 };
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: mums,
+                zoom: 9,
+                center: penninsula,
                 scrollwheel: false,
                 styles: [
                     {
@@ -270,19 +329,42 @@ function initMap() {
 
             // google map
             function addMarker(feature) {
-                var marker = new google.maps.Marker({
-                    position: feature.position,
-                    icon: "assets/t.png",
-                    map: map
-                });
+                if (feature.type === 'venue') {
+                    var marker = new google.maps.Marker({
+                        position: feature.position,
+                        icon: "assets/rings.png",
+                        map: map,
+                        title: 'moms'
+                    });
+                } else if (feature.type === 'hotel') {
+                    var marker = new google.maps.Marker({
+                        position: feature.position,
+                        icon: "assets/hotel.png",
+                        map: map,
+                        label: 'hotel'
+                    });
+                }
             }
+
 
             var features = [
                 {
                     position: new google.maps.LatLng(44.980275, -81.2954297),
-                    type: 'info'
+                    type: 'venue'
+                },
+                {
+                    position: new google.maps.LatLng(44.5626069, -80.9268468),
+                    type: 'hotel'
+                },
+                {
+                    position: new google.maps.LatLng(44.7665576, -81.1451329 ),
+                    type: 'hotel'
                 }
             ]
+
+            // var mums = { lat: 44.980275, lng: -81.2954297 };
+            // var qualityInn = { lat: 44.5626069, lng: -80.9268468 };
+            // var penninsula = { lat: 44.7665576, lng: -81.1451329 };
 
             for (var i = 0, feature; feature = features[i]; i++) {
                 addMarker(feature);
@@ -290,44 +372,6 @@ function initMap() {
         }
 
 
-
-        // SMOOTH SCROLL 
-        // Select all links with hashes
-        $('a[href*="#"]')
-          // Remove links that don't actually link to anything
-          .not('[href="#"]')
-          .not('[href="#0"]')
-          .click(function(event) {
-            // On-page links
-            if (
-              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-              && 
-              location.hostname == this.hostname
-            ) {
-              // Figure out element to scroll to
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-              // Does a scroll target exist?
-              if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                  scrollTop: target.offset().top
-                }, 1000, function() {
-                  // Callback after animation
-                  // Must change focus!
-                  var $target = $(target);
-                  $target.focus();
-                  if ($target.is(":focus")) { // Checking if the target was focused
-                    return false;
-                  } else {
-                    $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                    $target.focus(); // Set focus again
-                  };
-                });
-              }
-            }
-          });
 
 
 
