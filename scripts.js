@@ -36,7 +36,7 @@ $(document).ready(function() {
 
     // READY TO PARTY 
 
-    $('input#party').on('click touchstart', function() {
+    $('input#party').on('click', function() {
 
         if ($('input#party').prop('checked')) {
 
@@ -86,13 +86,13 @@ $(document).ready(function() {
         });
     });
 
-    $('.menu').on('click touchstart', function() {
+    $('.menu').on('click', function() {
         $('ul li:not(".menu")').toggle();
         $('nav ul').toggleClass('mobile');
         $('nav').toggleClass('mobile');
     });
 
-    $('nav a').on('click touchstart', function() {
+    $('nav a').on('click', function() {
         if (window.innerWidth < 800) {
             $('ul li:not(".menu")').toggle();
             $('nav ul').removeClass('mobile');
