@@ -74,6 +74,10 @@ label {
     text-transform: lowercase;
 }
 
+label span {
+    text-transform:uppercase;
+}
+
 /* End of base & common CSS */ 
 
 
