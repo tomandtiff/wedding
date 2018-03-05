@@ -373,6 +373,27 @@ function initMap() {
 
 
 
+// Fix for mobile chrome browsing 
+
+var options = [
+    {
+      selector: '.hero', // Mandatory, CSS selector
+      vh: 100,  // Mandatory, height in vh units
+    },
+    {
+      selector: '.date',
+      vh: 90
+    },
+    {
+      selector: '.map-insert',
+      vh: 60
+    }
+  ];
+  
+  var vhFix = new VHChromeFix(options);
+
+
+
 
 
 
